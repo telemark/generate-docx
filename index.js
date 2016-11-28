@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const Docxtemplater = require('docxtemplater')
+const JSZip = require('jszip')
 
 module.exports = (options, callback) => {
   if (!options) {
@@ -21,7 +22,8 @@ module.exports = (options, callback) => {
   }
 
   const template = fs.readFileSync(options.template.filePath, 'binary')
-  var document = new Docxtemplater(template)
+  const zip = new JSZip(template)
+  var document = new Docxtemplater().loadZip(zip)
 
   document.setData(options.template.data)
 
