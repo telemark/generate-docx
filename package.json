@@ -1,0 +1,47 @@
+{
+  "name": "generate-docx",
+  "description": "Generates .docx from template and data",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Geir Gåsodden",
+    "email": "geir.gasodden@pythonia.no",
+    "url": "https://github.com/zrrrzzt"
+  },
+  "keywords": [
+    "convert",
+    "docx",
+    "template",
+    "tfk",
+    "Telemark fylkeskommune"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/telemark/generate-docx.git"
+  },
+  "bugs": {
+    "url": "http://github.com/telemark/generate-docx/issues"
+  },
+  "homepage": "https://github.com/telemark/generate-docx",
+  "engines": {
+    "node": ">=4.6.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
+    "test-offline": "standard && tap --reporter=spec test/**/*.js",
+    "coverage": "tap test/**/*.js --coverage",
+    "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
+    "setup": "npm install",
+    "standard-fix": "standard --fix"
+  },
+  "devDependencies": {
+    "coveralls": "2.11.15",
+    "nsp": "2.6.2",
+    "standard": "8.6.0",
+    "tap": "8.0.1"
+  },
+  "dependencies": {
+    "docxtemplater": "3.0.0"
+  }
+}
