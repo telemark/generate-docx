@@ -42,7 +42,7 @@
     "tap": "8.0.1"
   },
   "dependencies": {
-    "docxtemplater": "3.0.0",
+    "docxtemplater": "3.0.1",
     "jszip": "2.6.1"
   }
 }
