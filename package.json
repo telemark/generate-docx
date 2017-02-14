@@ -39,7 +39,7 @@
     "coveralls": "2.11.16",
     "nsp": "2.6.2",
     "standard": "8.6.0",
-    "tap": "10.0.2"
+    "tap": "10.1.1"
   },
   "dependencies": {
     "docxtemplater": "3.0.3",
