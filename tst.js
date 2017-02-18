@@ -13,7 +13,7 @@ const options = {
     }
   },
   save: {
-    filePath: 'test/data/savedfile.docx'
+    filePath: 'test/data/savedfilenew.docx'
   }
 }
 

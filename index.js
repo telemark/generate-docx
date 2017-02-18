@@ -23,7 +23,7 @@ module.exports = (options, callback) => {
 
   const template = fs.readFileSync(options.template.filePath, 'binary')
   const zip = new JSZip(template)
-  var document = new Docxtemplater().loadZip(zip)
+  let document = new Docxtemplater().loadZip(zip)
 
   document.setData(options.template.data)
 

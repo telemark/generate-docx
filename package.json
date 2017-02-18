@@ -1,7 +1,7 @@
 {
   "name": "generate-docx",
   "description": "Generates .docx from template and data",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
@@ -17,14 +17,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/telemark/generate-docx.git"
+    "url": "https://github.com/telemark/generate-docx.git"
   },
   "bugs": {
-    "url": "http://github.com/telemark/generate-docx/issues"
+    "url": "https://github.com/telemark/generate-docx/issues"
   },
   "homepage": "https://github.com/telemark/generate-docx",
   "engines": {
-    "node": ">=4.6.2"
+    "node": ">=4.7.3"
   },
   "main": "index.js",
   "scripts": {
@@ -43,6 +43,6 @@
   },
   "dependencies": {
     "docxtemplater": "3.0.3",
-    "jszip": "3.1.3"
+    "jszip": "2.6.1"
   }
 }
