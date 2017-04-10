@@ -36,10 +36,10 @@
     "standard-fix": "standard --fix"
   },
   "devDependencies": {
+    "tap": "10.2.1"
     "coveralls": "2.12.0",
     "nsp": "2.6.3",
-    "standard": "9.0.2",
-    "tap": "10.2.0"
+    "standard": "9.0.2"
   },
   "dependencies": {
     "docxtemplater": "3.0.4",
