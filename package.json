@@ -36,13 +36,13 @@
     "standard-fix": "standard --fix"
   },
   "devDependencies": {
-    "tap": "10.2.1",
-    "coveralls": "2.12.0",
+    "tap": "10.3.2",
+    "coveralls": "2.13.0",
     "nsp": "2.6.3",
-    "standard": "9.0.2"
+    "standard": "10.0.1"
   },
   "dependencies": {
-    "docxtemplater": "3.0.4",
-    "jszip": "2.6.1"
+    "docxtemplater": "3.0.11",
+    "jszip": "3.1.3"
   }
 }
