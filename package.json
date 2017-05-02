@@ -1,7 +1,7 @@
 {
   "name": "generate-docx",
   "description": "Generates .docx from template and data",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
