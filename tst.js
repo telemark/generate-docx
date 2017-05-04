@@ -30,6 +30,11 @@ const options = {
 }
 */
 
+generateDocx(options)
+  .then(message => console.log(message))
+  .catch(error => console.error(error))
+
+/*
 generateDocx(options, (error, message) => {
   if (error) {
     console.error(error)
@@ -37,6 +42,7 @@ generateDocx(options, (error, message) => {
     console.log(message)
   }
 })
+*/
 
 /*
 generateDocx(options, (error, buf) => {
