@@ -5,36 +5,44 @@ const Docxtemplater = require('docxtemplater')
 const JSZip = require('jszip')
 
 module.exports = (options, callback) => {
-  if (!options) {
-    return callback(new Error('Missing required input: options'))
-  }
-  if (!options.template) {
-    return callback(new Error('Missing required input: options.template'))
-  }
-  if (!options.template.filePath) {
-    return callback(new Error('Missing required input: options.template.filePath'))
-  }
-  if (!options.template.data) {
-    return callback(new Error('Missing required input: options.template.data'))
-  }
-  if (options.save && !options.save.filePath) {
-    return callback(new Error('Missing required input: options.save.filePath'))
-  }
+  return new Promise((resolve, reject) => {
+    if (!options) {
+      const error = new Error('Missing required input: options')
+      return callback ? callback(error, null) : reject(error)
+    }
+    if (!options.template) {
+      const error = new Error('Missing required input: options.template')
+      return callback ? callback(error, null) : reject(error)
+    }
+    if (!options.template.filePath) {
+      const error = new Error('Missing required input: options.template.filePath')
+      return callback ? callback(error, null) : reject(error)
+    }
+    if (!options.template.data) {
+      const error = new Error('Missing required input: options.template.data')
+      return callback ? callback(error, null) : reject(error)
+    }
+    if (options.save && !options.save.filePath) {
+      const error = new Error('Missing required input: options.save.filePath')
+      return callback ? callback(error, null) : reject(error)
+    }
 
-  const template = fs.readFileSync(options.template.filePath, 'binary')
-  const zip = new JSZip(template)
-  let document = new Docxtemplater().loadZip(zip)
+    const template = fs.readFileSync(options.template.filePath, 'binary')
+    const zip = new JSZip(template)
+    let document = new Docxtemplater().loadZip(zip)
 
-  document.setData(options.template.data)
+    document.setData(options.template.data)
 
-  document.render()
+    document.render()
 
-  const buf = document.getZip().generate({type: 'nodebuffer'})
+    const buf = document.getZip().generate({type: 'nodebuffer'})
 
-  if (options.save) {
-    fs.writeFileSync(options.save.filePath, buf)
-    return callback(null, {status: 'File written'})
-  } else {
-    return callback(null, buf)
-  }
+    if (options.save) {
+      fs.writeFileSync(options.save.filePath, buf)
+      const status = {status: 'File written'}
+      return callback ? callback(null, status) : resolve(status)
+    } else {
+      return callback ? callback(null, buf) : resolve(buf)
+    }
+  })
 }
