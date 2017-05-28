@@ -42,7 +42,7 @@
     "standard": "10.0.2"
   },
   "dependencies": {
-    "docxtemplater": "3.0.12",
+    "docxtemplater": "3.1.0",
     "jszip": "^2.6.1"
   }
 }
