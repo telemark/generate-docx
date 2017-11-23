@@ -13,9 +13,7 @@ Returns a Buffer or saves the generated file if given path and filename.
 
 ### Promises
 
-```JavaScript
-'use strict'
-
+```js
 const generateDocx = require('generate-docx')
 
 const options = {
@@ -31,7 +29,7 @@ const options = {
     filePath: 'test/data/savedfile.docx'
   }
 }
-  
+
 generateDocx(options)
   .then(message => console.log(message))
   .catch(error => console.error(error))
@@ -39,9 +37,7 @@ generateDocx(options)
 
 ### Callback
 
-```JavaScript
-'use strict'
-
+```js
 const generateDocx = require('generate-docx')
 
 const options = {
@@ -57,7 +53,7 @@ const options = {
     filePath: 'test/data/savedfile.docx'
   }
 }
-  
+
 generateDocx(options, (error, message) => {
   if (error) {
     console.error(error)
@@ -71,9 +67,7 @@ generateDocx(options, (error, message) => {
 
 ### Promises
 
-```JavaScript
-'use strict'
-
+```js
 const fs = require('fs')
 const generateDocx = require('generate-docx')
 
@@ -98,8 +92,7 @@ generateDocx(options)
 
 ### Callback
 
-```JavaScript
-'use strict'
+```js
 
 const fs = require('fs')
 const generateDocx = require('generate-docx')

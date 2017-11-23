@@ -1,48 +1,55 @@
-'use strict'
-
+const { promisify } = require('util')
 const fs = require('fs')
+const readFile = promisify(fs.readFile)
+const writeFile = promisify(fs.writeFile)
 const Docxtemplater = require('docxtemplater')
-const JSZip = require('jszip')
+const JSzip = require('jszip')
+
+const generateDocx = async options => {
+  if (!options) {
+    throw Error('Missing required input: options')
+  }
+  if (!options.template) {
+    throw Error('Missing required input: options.template')
+  }
+  if (!options.template.filePath) {
+    throw Error('Missing required input: options.template.filePath')
+  }
+  if (!options.template.data) {
+    throw Error('Missing required input: options.template.data')
+  }
+  if (options.save && !options.save.filePath) {
+    throw Error('Missing required input: options.save.filePath')
+  }
+
+  const template = await readFile(options.template.filePath, 'binary')
+  const zip = new JSzip(template)
+
+  const document = new Docxtemplater()
+    .loadZip(zip)
+    .setData(options.template.data)
+    .render()
+
+  const buf = document
+    .getZip()
+    .generate({type: 'nodebuffer'})
+
+  if (options.save) {
+    await writeFile(options.save.filePath, buf)
+    return { status: 'File written' }
+  } else {
+    return buf
+  }
+}
 
 module.exports = (options, callback) => {
   return new Promise((resolve, reject) => {
-    if (!options) {
-      const error = new Error('Missing required input: options')
-      return callback ? callback(error, null) : reject(error)
-    }
-    if (!options.template) {
-      const error = new Error('Missing required input: options.template')
-      return callback ? callback(error, null) : reject(error)
-    }
-    if (!options.template.filePath) {
-      const error = new Error('Missing required input: options.template.filePath')
-      return callback ? callback(error, null) : reject(error)
-    }
-    if (!options.template.data) {
-      const error = new Error('Missing required input: options.template.data')
-      return callback ? callback(error, null) : reject(error)
-    }
-    if (options.save && !options.save.filePath) {
-      const error = new Error('Missing required input: options.save.filePath')
-      return callback ? callback(error, null) : reject(error)
-    }
-
-    const template = fs.readFileSync(options.template.filePath, 'binary')
-    const zip = new JSZip(template)
-    let document = new Docxtemplater().loadZip(zip)
-
-    document.setData(options.template.data)
-
-    document.render()
-
-    const buf = document.getZip().generate({type: 'nodebuffer'})
-
-    if (options.save) {
-      fs.writeFileSync(options.save.filePath, buf)
-      const status = {status: 'File written'}
-      return callback ? callback(null, status) : resolve(status)
-    } else {
-      return callback ? callback(null, buf) : resolve(buf)
-    }
+    generateDocx(options)
+      .then(data => {
+        return callback ? callback(null, data) : resolve(data)
+      })
+      .catch(error => {
+        return callback ? callback(error, null) : reject(error)
+      })
   })
 }

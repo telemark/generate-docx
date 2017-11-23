@@ -1,57 +1,55 @@
-'use strict'
-
-const tap = require('tap')
+const test = require('ava')
 const generateDocx = require('../../index')
 
-tap.test('requires an options object', function (test) {
+test('requires an options object', async t => {
   const options = false
-  const expectedErrorMessage = 'Missing required input: options'
-  generateDocx(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
+  try {
+    await generateDocx(options)
+  } catch (e) {
+    t.is(e.message, 'Missing required input: options')
+  }
 })
 
-tap.test('requires options.template too exist', function (test) {
-  var options = {
+test('requires options.template too exist', async t => {
+  const options = {
     template: false
   }
-  var expectedErrorMessage = 'Missing required input: options.template'
-  generateDocx(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
+  try {
+    await generateDocx(options)
+  } catch (e) {
+    t.is(e.message, 'Missing required input: options.template')
+  }
 })
 
-tap.test('requires options.template.filePath too exist', function (test) {
-  var options = {
+test('requires options.template.filePath too exist', async t => {
+  const options = {
     template: {
       filePath: false
     }
   }
-  var expectedErrorMessage = 'Missing required input: options.template.filePath'
-  generateDocx(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
+  try {
+    await generateDocx(options)
+  } catch (e) {
+    t.is(e.message, 'Missing required input: options.template.filePath')
+  }
 })
 
-tap.test('requires options.template.data too exist', function (test) {
-  var options = {
+test('requires options.template.data too exist', async t => {
+  const options = {
     template: {
       filePath: 'yup',
       data: false
     }
   }
-  var expectedErrorMessage = 'Missing required input: options.template.data'
-  generateDocx(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
+  try {
+    await generateDocx(options)
+  } catch (e) {
+    t.is(e.message, 'Missing required input: options.template.data')
+  }
 })
 
-tap.test('requires options.save.filePath too exist if save', function (test) {
-  var options = {
+test('requires options.save.filePath too exist if save', async t => {
+  const options = {
     template: {
       filePath: 'yup',
       data: {
@@ -62,9 +60,9 @@ tap.test('requires options.save.filePath too exist if save', function (test) {
       filePath: false
     }
   }
-  var expectedErrorMessage = 'Missing required input: options.save.filePath'
-  generateDocx(options, function (error, data) {
-    tap.equal(error.message, expectedErrorMessage, expectedErrorMessage)
-    test.done()
-  })
+  try {
+    await generateDocx(options)
+  } catch (e) {
+    t.is(e.message, 'Missing required input: options.save.filePath')
+  }
 })

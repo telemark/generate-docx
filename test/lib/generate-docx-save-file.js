@@ -1,9 +1,7 @@
-'use strict'
-
-const tap = require('tap')
+const test = require('ava')
 const generateDocx = require('../../index')
 
-tap.test('saves file if passed save', (test) => {
+test('saves file if passed save', async t => {
   const options = {
     template: {
       filePath: 'test/data/testdoc.docx',
@@ -18,13 +16,6 @@ tap.test('saves file if passed save', (test) => {
     }
   }
 
-  generateDocx(options, function (error, message) {
-    if (error) {
-      throw error
-    }
-
-    tap.equal(message.status, 'File written', 'file written ok')
-
-    test.done()
-  })
+  const res = await generateDocx(options)
+  t.is(res.status, 'File written')
 })

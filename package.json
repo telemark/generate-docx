@@ -1,7 +1,7 @@
 {
   "name": "generate-docx",
   "description": "Generates .docx from template and data",
-  "version": "1.3.17",
+  "version": "2.0.0",
   "license": "MIT",
   "author": {
     "name": "Geir Gåsodden",
@@ -24,25 +24,26 @@
   },
   "homepage": "https://github.com/telemark/generate-docx",
   "engines": {
-    "node": ">=4.8.4"
+    "node": ">=8.0.0"
   },
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "test": "standard && nsp check && tap --reporter=spec test/**/*.js",
-    "test-offline": "standard && tap --reporter=spec test/**/*.js",
-    "coverage": "tap test/**/*.js --coverage",
-    "coveralls": "tap --cov --coverage-report=lcov test/**/*.js && cat coverage/lcov.info | coveralls",
-    "setup": "npm install",
-    "standard-fix": "standard --fix"
+    "test": "standard && nsp check && ava",
+    "coverage": "nyc ava",
+    "coveralls": "nyc ava && nyc report --reporter=lcov && cat coverage/lcov.info | coveralls"
   },
   "devDependencies": {
-    "tap": "10.7.3",
+    "ava": "0.23.0",
     "coveralls": "3.0.0",
     "nsp": "3.1.0",
-    "standard": "10.0.2"
+    "nyc": "11.2.1",
+    "standard": "10.0.3"
   },
   "dependencies": {
     "docxtemplater": "3.1.12",
-    "jszip": "^3.1.5"
+    "jszip": "2.6.1"
   }
 }

@@ -1,9 +1,7 @@
-'use strict'
-
-const tap = require('tap')
+const test = require('ava')
 const generateDocx = require('../../index')
 
-tap.test('returns buffer with template', (test) => {
+test('returns buffer with template', async t => {
   const options = {
     template: {
       filePath: 'test/data/testdoc.docx',
@@ -15,13 +13,6 @@ tap.test('returns buffer with template', (test) => {
     }
   }
 
-  generateDocx(options, function (error, buf) {
-    if (error) {
-      throw error
-    }
-
-    tap.type(buf, 'Buffer', 'buffer returned ok')
-
-    test.done()
-  })
+  const buf = await generateDocx(options)
+  t.true(buf instanceof Buffer)
 })
