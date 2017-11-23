@@ -100,9 +100,9 @@ const options = {
   template: {
     filePath: 'test/data/testdoc.docx',
     data: {
-      'title': 'This is the title',
-      'description': 'Description is good',
-      'body': 'My body is my temple'
+      title: 'This is the title',
+      description: 'Description is good',
+      body: 'My body is my temple'
     }
   }
 }
