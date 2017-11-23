@@ -3,7 +3,7 @@ const pkg = require('../package.json')
 const dependencies = pkg.dependencies || {}
 const devDependencies = pkg.devDependencies || {}
 const dropModules = ['nsp']
-const isDropped = (module) => !dropModules.includes(module)
+const isDropped = module => !dropModules.includes(module)
 
 test('basic check', t => {
   t.true(true, 'ava works ok')

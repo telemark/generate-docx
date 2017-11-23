@@ -1,5 +1,5 @@
 const test = require('ava')
-const generateDocx = require('../../index')
+const generateDocx = require('../index')
 
 test('requires an options object', async t => {
   const options = false

@@ -1,14 +1,15 @@
+const { unlinkSync, existsSync } = require('fs')
 const test = require('ava')
-const generateDocx = require('../../index')
+const generateDocx = require('../index')
 
 test('saves file if passed save', async t => {
   const options = {
     template: {
       filePath: 'test/data/testdoc.docx',
       data: {
-        'title': 'This is the title',
-        'description': 'Description is good',
-        'body': 'My body is my temple'
+        title: 'This is the title',
+        description: 'Description is good',
+        body: 'My body is my temple'
       }
     },
     save: {
@@ -18,4 +19,6 @@ test('saves file if passed save', async t => {
 
   const res = await generateDocx(options)
   t.is(res.status, 'File written')
+  t.true(existsSync(options.save.filePath))
+  unlinkSync(options.save.filePath)
 })

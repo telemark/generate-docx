@@ -45,11 +45,7 @@ const generateDocx = async options => {
 module.exports = (options, callback) => {
   return new Promise((resolve, reject) => {
     generateDocx(options)
-      .then(data => {
-        return callback ? callback(null, data) : resolve(data)
-      })
-      .catch(error => {
-        return callback ? callback(error, null) : reject(error)
-      })
+      .then(data => callback ? callback(null, data) : resolve(data))
+      .catch(error => callback ? callback(error, null) : reject(error))
   })
 }
