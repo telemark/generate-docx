@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/telemark/generate-docx.svg?branch=master)](https://travis-ci.org/telemark/generate-docx)
 [![Coverage Status](https://coveralls.io/repos/telemark/generate-docx/badge.svg?branch=master&service=github)](https://coveralls.io/github/telemarks/generate-docx?branch=master)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/telemark/generate-docx.svg)](https://greenkeeper.io/)
 
 # generate-docx
 
