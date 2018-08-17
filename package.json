@@ -44,7 +44,7 @@
     "standard": "11.0.1"
   },
   "dependencies": {
-    "docxtemplater": "3.8.1",
+    "docxtemplater": "3.8.3",
     "jszip": "2.6.1"
   }
 }
