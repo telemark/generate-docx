@@ -119,5 +119,3 @@ generateDocx(options, (error, buf) => {
 ## License
 
 [MIT](LICENSE)
-
-![Robohash image of generate-docx](https://robots.kebabstudios.party/generate-docx.png "Robohash image of generate-docx")

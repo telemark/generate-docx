@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/telemark/generate-docx#readme",
   "engines": {
-    "node": ">=8.11.3"
+    "node": ">=8.11.4"
   },
   "main": "index.js",
   "files": [
