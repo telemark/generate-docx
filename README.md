@@ -116,6 +116,28 @@ generateDocx(options, (error, buf) => {
 })
 ```
 
+## Options
+If you need to pass an [option object](https://docxtemplater.readthedocs.io/en/latest/configuration.html) to configure docxtemplater you can do using `templateOptions`.   
+For example you can configure docxtemplater to parse `\n` as a linebreak in the document
+```js
+const options = {
+  template: {
+    filePath: 'test/data/testdoc.docx',
+    data: {
+      title: 'This is the title',
+      description: 'Description is good',
+      body: 'My body is \n my temple'
+    }
+  },
+  templateOptions: {
+      linebreaks: true
+  },
+  save: {
+    filePath: 'test/data/savedfile.docx'
+  }
+}
+```
+
 ## License
 
 [MIT](LICENSE)
