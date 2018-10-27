@@ -24,10 +24,12 @@ const generateDocx = async options => {
 
   const template = await readFile(options.template.filePath, 'binary')
   const zip = new JSzip(template)
+  const templateOptions = options.templateOptions || {}
 
   const document = new Docxtemplater()
     .loadZip(zip)
     .setData(options.template.data)
+    .setOptions(templateOptions)
     .render()
 
   const buf = document
