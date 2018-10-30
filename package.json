@@ -45,7 +45,7 @@
     "standard": "12.0.1"
   },
   "dependencies": {
-    "docxtemplater": "3.9.1",
+    "docxtemplater": "3.9.2",
     "jszip": "2.6.1"
   },
   "husky": {
