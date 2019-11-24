@@ -1,12 +1,5 @@
 {
   "extends": [
-    "config:base"
-  ],
-  "devDependencies": {
-    "automerge": true
-  },
-  "assignees": [
-    "maccyber",
-    "Sherex"
+    "github>vtfk/renovate-config"
   ]
 }
