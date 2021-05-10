@@ -42,7 +42,7 @@
     "coveralls": "3.1.0",
     "husky": "5.2.0",
     "nyc": "15.1.0",
-    "standard": "15.0.1"
+    "standard": "16.0.3"
   },
   "dependencies": {
     "docxtemplater": "3.17.9",
