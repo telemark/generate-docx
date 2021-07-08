@@ -34,7 +34,10 @@ const generateDocx = async options => {
 
   const buf = document
     .getZip()
-    .generate({ type: 'nodebuffer' })
+    .generate({
+      type: 'nodebuffer',
+      compression: 'DEFLATE',
+    })
 
   if (options.save) {
     await writeFile(options.save.filePath, buf)
