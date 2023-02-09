@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "docxtemplater": "3.17.9",
-    "jszip": "2.6.1"
+    "jszip": "3.8.0"
   },
   "husky": {
     "hooks": {
